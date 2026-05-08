@@ -224,7 +224,7 @@ async def account_login(bot: Client, m: Message):
                     --add-header "user-agent: Mozilla/5.0"
                     -f "{ytf}"
                     "{url}"
-                    -o "{name}.mp4"'''
+                    cmd = f'yt-dlp --cookies cocces.txt --add-header "referer:https://web.classplusapp.com/" --add-header "origin:https://web.classplusapp.com" --add-header "user-agent:Mozilla/5.0" -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
                 
