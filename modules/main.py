@@ -203,29 +203,17 @@ async def account_login(bot: Client, m: Message):
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
 
-
             if ".png" in url or "thumbnail" in url:
                 print("Thumbnail skipped")
                 continue
                 
             if "jw-prod" in url:
-                    cmd = f'''yt-dlp
-                    --cookies cocces.txt
-                    --add-header "referer: https://web.classplusapp.com/"
-                    --add-header "origin: https://web.classplusapp.com"
-                    --add-header "user-agent: Mozilla/5.0"
-                    -o "{name}.mp4"
-                    "{url}"'''
+                cmd = f'yt-dlp --cookies cocces.txt --add-header "referer:https://web.classplusapp.com/" --add-header "origin:https://web.classplusapp.com" --add-header "user-agent:Mozilla/5.0" -o "{name}.mp4" "{url}"'
+                
             else:
-                    cmd = f'''yt-dlp
-                    --cookies cocces.txt
-                    --add-header "referer: https://web.classplusapp.com/"
-                    --add-header "origin: https://web.classplusapp.com"
-                    --add-header "user-agent: Mozilla/5.0"
-                    -f "{ytf}"
-                    "{url}"
-                    cmd = f'yt-dlp --cookies cocces.txt --add-header "referer:https://web.classplusapp.com/" --add-header "origin:https://web.classplusapp.com" --add-header "user-agent:Mozilla/5.0" -f "{ytf}" "{url}" -o "{name}.mp4"'
+                cmd = f'yt-dlp --cookies cocces.txt --add-header "referer:https://web.classplusapp.com/" --add-header "origin:https://web.classplusapp.com" --add-header "user-agent:Mozilla/5.0" -f "{ytf}" "{url}" -o "{name}.mp4"'
 
+       
             try:  
                 
                 cc = f'**[ 🎥 ] Vid_ID:** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.mkv\n✉️ 𝐁𝐚𝐭𝐜𝐡 » **{raw_text0}**'
