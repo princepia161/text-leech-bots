@@ -202,11 +202,24 @@ async def account_login(bot: Client, m: Message):
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
-
-            if "jw-prod" in url:
-                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
-            else:
-                cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
+                
+                if "jw-prod" in url:
+                    cmd = f'''yt-dlp
+                    --cookies cocces.txt
+                    --add-header "referer: https://web.classplusapp.com/"
+                    --add-header "origin: https://web.classplusapp.com"
+                    --add-header "user-agent: Mozilla/5.0"
+                    -o "{name}.mp4"
+                    "{url}"'''
+                else:
+                    cmd = f'''yt-dlp
+                    --cookies cocces.txt
+                    --add-header "referer: https://web.classplusapp.com/"
+                    --add-header "origin: https://web.classplusapp.com"
+                    --add-header "user-agent: Mozilla/5.0"
+                    -f "{ytf}"
+                    "{url}"
+                    -o "{name}.mp4"'''
 
             try:  
                 
